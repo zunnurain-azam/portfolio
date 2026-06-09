@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #060810;
+    color: #f0f4ff;
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(99, 102, 241, 0.4);
+  }
+  
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060810;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #6366f1;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .card-glass {
+    @apply bg-[#0d1117]/60 border border-[rgba(99,102,241,0.18)] rounded-2xl backdrop-blur-xl transition-all duration-300;
+  }
+  
+  .card-glass:hover {
+    @apply border-[rgba(99,102,241,0.45)] -translate-y-1 shadow-[0_16px_48px_rgba(99,102,241,0.12)];
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-br from-[#4f46e5] to-[#6366f1] text-white rounded-lg font-space text-sm font-semibold tracking-wide cursor-pointer relative overflow-hidden transition-transform duration-200 hover:scale-105;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-[11px] bg-transparent text-fg-light border border-[rgba(99,102,241,0.18)] rounded-lg font-space text-sm font-medium cursor-pointer transition-all duration-300 hover:border-accent-primary hover:bg-[rgba(99,102,241,0.08)];
+  }
+  
+  .nav-link {
+    @apply text-sm font-semibold tracking-wider text-fg-muted cursor-pointer py-1.5 relative transition-colors duration-200 hover:text-fg-light bg-none border-none font-space;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-accent-primary transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .input-field {
+    @apply w-full bg-white/5 border border-[rgba(99,102,241,0.18)] rounded-xl px-4 py-3 text-fg-light font-space text-sm outline-none transition-colors duration-300 focus:border-accent-primary placeholder:text-fg-muted/50;
+  }
+}
